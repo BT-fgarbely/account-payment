@@ -35,12 +35,7 @@ class PaymentOrder(models.Model):
                                  help='Select a date if you have chosen '
                                  'Preferred Date to be fixed.')
 
-    reference = fields.Char('Reference', required=1,
-                            states={'done': [('readonly', True)]},
-                            default=lambda self:
-                            self.env['ir.sequence'].
-                            next_by_code('payment.order'),
-                            copy=False)
+    reference = fields.Char('Reference', required=1, states={'done': [('readonly', True)]}, default=lambda self: self.env['ir.sequence'].next_by_code('payment.order'), copy=False)
 
     mode = fields.Many2one('payment.mode', 'Payment Mode', select=True,
                            required=1, states={'done': [('readonly', True)]},
