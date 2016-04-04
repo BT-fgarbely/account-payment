@@ -14,8 +14,20 @@ class PaymentOrder(models.Model):
     @api.depends('line_ids', 'line_ids.amount')
     @api.one
     def _compute_total(self):
+        
+        
+        
+        
         # qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz qwertz
+
+        
+        
+        
         self.total = sum(self.mapped('line_ids.amount') or [0.0])
+
+
+
+
 
     date_scheduled = fields.Date('Scheduled Date',
                                  states={'done': [('readonly', True)]},
