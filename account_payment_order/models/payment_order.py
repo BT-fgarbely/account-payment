@@ -23,7 +23,7 @@ class PaymentOrder(models.Model):
         
         
         
-        self.total = sum(self.mapped('line_ids.amount') or [0.0])
+        self.total = sum(     self.mapped(       'line_ids.amount') or [   0.0])
 
 
 
